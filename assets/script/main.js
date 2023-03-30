@@ -8,8 +8,8 @@ const app = createApp({
             events:[],
             backup_events:[],
             unic_categories:[],
-            selected_categories:[],   
-            
+            selected_categories:[], 
+            text:'',
         }
     },
     created(){
@@ -26,7 +26,6 @@ const app = createApp({
                     this.events = datos.events
                     this.backup_events= this.events
                     this.obtener_categorias(datos.events)
-                    //falta agrear aca this.extraercategorias
                 })
         },
         obtener_categorias(array){
@@ -38,6 +37,14 @@ const app = createApp({
         }
     },
     computed: {
+        doble_filtro(){
+            let filtro1= this.backup_events.filter(evento=>evento.name.toLowerCase().includes(this.text.toLowerCase()));
+            if (!this.selected_categories.length){
+                this.events = filtro1  
+            }else{
+                this.events= filtro1.filter(evento=>this.selected_categories.includes(evento.category))
+            }
+        }
 
     },
     
