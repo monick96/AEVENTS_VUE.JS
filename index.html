@@ -49,7 +49,7 @@
             </div>
             <div class="row title">
                 <div class="col">
-                    <h1>Home</h1>
+                    <h1 id="page">Home</h1>
                 </div>
             </div>
     
@@ -85,7 +85,7 @@
                                 <p class="card-text">{{el.description}}</p>
                                 <p><span>Price:</span> ${{el.price}}</p>
                                 <p><span>Date:</span> {{el.date}}</p>
-                                <p class="button" role="button"><a href="./details.html?id={{el._id}}">More...</a></p>
+                                <p class="button" role="button"><a :href="'./details.html?id='+el._id">More...</a></p>
                             </div>
                         </div>
                     </div>

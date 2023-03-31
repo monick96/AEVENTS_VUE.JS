@@ -50,7 +50,7 @@
             </div>
             <div class="row title">
                 <div class="col">
-                    <h1>Past Events</h1>
+                    <h1 id="page">Past Events</h1>
                 </div>
             </div>
         </header>
@@ -73,7 +73,7 @@
                         <form class="d-flex justify-content-center align-items-center ">
                             <input id="searcher" type="text" name="search" class="bg-dark" v-model="text"
                                 placeholder="Search">
-                            {{doble_filtro2}}
+                            {{doble_filtro}}
                         </form>
                     </div>
                 </div>
@@ -82,15 +82,15 @@
                 <div class="row cards justify-content-center align-items-center">
                     <div id="col-card-home"
                         class="col d-flex flex-wrap justify-content-center align-items-center justify-content-md-between card-small">
-                        <p v-if="!past_events.length" class="display-6 col d-flex flex-column justify-content-center align-items-center ">It was not found "{{text}}" between events!</p>
-                        <div class="card" v-for="el of past_events" :key="el._id">
+                        <p v-if="!events.length" class="display-6 col d-flex flex-column justify-content-center align-items-center ">It was not found "{{text}}" between events!</p>
+                        <div class="card" v-for="el of events" :key="el._id">
                             <img :src="el.image" class="card-img-top" :alt="el.category">
                             <div class="card-body">
                                 <h5 class="card-title">{{el.name}}</h5>
                                 <p class="card-text">{{el.description}}</p>
                                 <p><span>Price:</span> ${{el.price}}</p>
                                 <p><span>Date:</span> {{el.date}}</p>
-                                <p class="button" role="button"><a href="./details.html?id={{el._id}}">More...</a></p>
+                                <p class="button" role="button"><a :href="'./details.html?id='+el._id">More...</a></p>
                             </div>
                         </div>
                     </div>

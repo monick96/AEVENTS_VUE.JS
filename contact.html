@@ -16,45 +16,78 @@
 </head>
 
 <body>
-    <header>
-        <div class="row ">
-            <div class="col ">
-                <nav class="navbar navbar-dark ">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="./index.html">
-                            <img src="./assets/img/Logo Amazing Events.png" alt="Logo Amazing Events">
-                        </a>
-                        <ul class="navbar-nav d-flex flex-row">
-                            <li class="nav-item">
-                                <a class="nav-link" href="./index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./u-events.html">Upcoming Events</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./p-events.html">Past Events</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="#">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./stats.html">Stats</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-
-            </div>
-        </div>
-        <div class="row title">
-            <div class="col">
-                <h1>Contact Us</h1>
-            </div>
-        </div>
-
-    </header>
+    
     <div id="app">
-        <p>{{message}}</p>
+        <header>
+            <div class="row ">
+                <div class="col ">
+                    <nav class="navbar navbar-dark ">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="./index.html">
+                                <img src="./assets/img/Logo Amazing Events.png" alt="Logo Amazing Events">
+                            </a>
+                            <ul class="navbar-nav d-flex flex-row">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./u-events.html">Upcoming Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./p-events.html">Past Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active"  aria-current="page" href="#">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./stats.html">Stats</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+    
+                </div>
+            </div>
+            <div class="row title">
+                <div class="col">
+                    <h1 id="page">Contact Us</h1>
+                </div>
+            </div>
+    
+        </header>
+        <main class="contact">
+            <div class="container contact bg-dark">
+                <form action="#" method="post">
+                    <div class="row flex-column justify-content-center align-items-center text-center">
+                        <div class="col-8 col-md-10 col-lg-6">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                        </div>
+                        <div class="col-10  col-lg-6">
+                            <div class="form-group">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row flex-column justify-content-center align-items-center text-center">
+                        <div class="col-10 col-md-8 col-lg-6">
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row flex-column justify-content-center align-items-center text-center">
+                        <div class="col-4 col-lg-2 text-center">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
         <footer v-html="footer_template" class="foot-contact">
         </footer>
     </div>
