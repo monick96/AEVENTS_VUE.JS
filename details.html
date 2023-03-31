@@ -16,47 +16,69 @@
 </head>
 
 <body>
-    <header>
-        <div class="row ">
-            <div class="col ">
-                <nav class="navbar navbar-dark ">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="./index.html">
-                            <img src="./assets/img/Logo Amazing Events.png" alt="Logo Amazing Events">
-                        </a>
-                        <ul class="navbar-nav d-flex flex-row">
-                            <li class="nav-item">
-                                <a class="nav-link" href="./index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./u-events.html">Upcoming Events</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./p-events.html">Past Events</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="#">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./stats.html">Stats</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-
-            </div>
-        </div>
-        <div class="row title">
-            <div class="col">
-                <h1>Details</h1>
-            </div>
-        </div>
-
-    </header>
     <div id="app">
-        <p>{{message}}</p>
-        <footer v-html="footer_template" class="foot-details">
-        </footer>
+        <header>
+            <div class="row ">
+                <div class="col ">
+                    <nav class="navbar navbar-dark ">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" href="./index.html">
+                                <img src="./assets/img/Logo Amazing Events.png" alt="Logo Amazing Events">
+                            </a>
+                            <ul class="navbar-nav d-flex flex-row">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./u-events.html">Upcoming Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./p-events.html">Past Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="#">Contact</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./stats.html">Stats</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+            <div class="row title">
+                <div class="col">
+                    <h1 id="page">Details</h1>
+                </div>
+            </div>
+
+        </header>
+        <main class="details">
+            <div  class="container info" >
+                <div  class="card mb-3 card-info" >
+                    <div  id="cards_details" class="row justify-content-center align-items-center card-detail">
+                        <div class="col-md-6">
+                            <img :src="evento.image" class="card-img-top" :alt="evento.name">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">{{evento.name}}</h5>
+                                <p class="card-text">{{evento.description}}</p>
+                                <p><span>Category:</span> {{evento.category}}</p>
+                                <p><span>Date:</span> {{evento.date}}</p>
+                                <p class="card-text"><span>Place:</span> {{evento.place}}</p>
+                                <p class="card-text"><span>Capacity:</span> {{evento.capacity}}</p>
+                                <p class="card-text"><span>Assistance:</span> {{evento.capacity}}</p>
+                                <p><span>Price:</span>${{evento.price}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- <footer v-html="footer_template" class="foot-details">
+        </footer> -->
     </div>
 
     <!-- Bootstrap JavaScript Libraries -->

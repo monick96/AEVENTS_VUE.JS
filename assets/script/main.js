@@ -10,9 +10,9 @@ const app = createApp({
             unic_categories:[],
             selected_categories:[], 
             text:'',
-            past_events:[],
-            backup_past_events:[],
-            current_date:new Date(),
+            id:'',
+            evento:{},
+            
         }
     },
     created(){
@@ -26,12 +26,14 @@ const app = createApp({
             fetch(this.url_api)
                 .then(resp => resp.json())
                 .then(datos =>{
-                    this.events = datos.events
+                    this.events = this.filter_events(datos.events,datos.currentDate)
                     this.backup_events= this.events
-                    this.current_date= datos.currentDate
                     this.obtener_categorias(datos.events)
-                    this.filter_past_events(datos.currentDate,datos.events)
-                    this.backup_past_events = this.filter_past_events(datos.currentDate,datos.events)
+                    let params= new URLSearchParams(location.search)
+                    this.id=params.get('id')
+                    if(this.id !=''){
+                        this.evento= this.events.find(el=>el._id==this.id)
+                    }
                 })
         },
         obtener_categorias(array){
@@ -41,8 +43,14 @@ const app = createApp({
                 }
             })
         },
-        filter_past_events(date,array){
-            return this.past_events= array.filter(el =>date>el.date)
+        filter_events(array_eventos,date){
+            let page = document.getElementById('page').textContent
+            if (page == 'Past Events'){
+                return array_eventos.filter(el =>date>el.date )
+            }else if(page =='Upcoming Events'){
+                return array_eventos.filter(el =>date<el.date )
+            }
+            return array_eventos
         }
     },
     computed: {
@@ -53,17 +61,7 @@ const app = createApp({
             }else{
                 this.events= filtro1.filter(evento=>this.selected_categories.includes(evento.category))
             }
-        },
-
-        doble_filtro2(){
-            let filtro2= this.backup_past_events.filter(evento=>evento.name.toLowerCase().includes(this.text.toLowerCase()));
-            if (!this.selected_categories.length){
-                this.past_events = filtro2  
-            }else{
-                this.past_events= filtro2.filter(evento=>this.selected_categories.includes(evento.category))
-            }
         }
-        
     },
     
     
